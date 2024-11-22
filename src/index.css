@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-bone: #e1e9e5;
+    --color-eggshell: #f3f4e5;
+    --color-pale-nimbus: #ecf4e5;
+    --color-offwhite: #f1f1f1;
+    --color-unhinged:  #e1dfea;
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    src: url('./assets/fonts/PlusJakartaSans-Regular.ttf') format('.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    src: url('./assets/fonts/PlusJakartaSans-Medium.ttf') format('.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    src: url('./assets/fonts/PlusJakartaSans-SemiBold.ttf') format('.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    src: url('./assets/fonts/PlusJakartaSans-Bold.ttf') format('.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    color: #141522;
+    background-color: #f4f4f4;
+    /* min-height: 100vh; */
+    overflow-x: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
