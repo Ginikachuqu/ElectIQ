@@ -4,7 +4,7 @@ type Props = {}
 
 const Navbar = (props: Props) => {
   return (
-    <nav className='w-full fixed top-0 bg-white flex justify-between px-[4rem] py-4'>
+    <nav className='w-full fixed top-0 z-[999] bg-white flex justify-between px-[4rem] py-4'>
       <div className='w-full flex justify-between'>
         <Link to='/'>
           {/* Logo */}

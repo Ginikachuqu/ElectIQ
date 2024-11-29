@@ -5,6 +5,7 @@ import Signin from './pages/signin/Signin'
 import Signup from './pages/signup/Signup'
 import Home from './pages/home/Home'
 import Booth from './pages/votingbooth/Booth'
+import Admin from './pages/admin/Admin'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
 
         <Route path='/' element={<Home />}/>
         <Route path='/booth' element={<Booth />}/>
+        <Route path='/admin' element={<Admin />}/>
       </Routes>
     </Router>
   )
