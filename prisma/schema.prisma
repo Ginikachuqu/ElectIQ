@@ -14,15 +14,74 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+// User model for authentication and profile
 model User {
-  id         Int       @id @default(autoincrement())
-  email      String    @unique
-  name       String
-  matric_no  Int
-  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  id         String   @id @default(cuid())
+  email      String   @unique
+  firstName  String
+  lastName   String
+  matricNo   String   @unique
+  role       UserRole @default(STUDENT)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  vote       Vote[]
 }
 
+// Enum for user roles
+enum UserRole {
+  STUDENT
+  ADMIN
+}
+
+// Election model to track specific election instances
+model Election {
+  id           Int        @id @default(autoincrement())
+  name         String
+  description  String?
+  startDate    DateTime
+  endDate      DateTime
+  isActive     Boolean    @default(false)
+  isClosed     Boolean    @default(false)
+  categories   Category[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+// Candidate model representing election candidates
+model Candidate {
+  id         Int      @id @default(autoincrement())
+  name       String
+  bio        String?
+  image      String?
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  votes      Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  Vote       Vote[]
+}
+
+// Category model for election positions
 model Category {
-  id    Int
-  
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String?
+  electionId  Int
+  election    Election    @relation(fields: [electionId], references: [id])
+  candidates  Candidate[]
+  totalVotes  Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+// Vote model to track individual votes
+model Vote {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  candidateId Int
+  candidate   Candidate @relation(fields: [candidateId], references: [id])
+  createdAt   DateTime  @default(now())
+
+  @@unique([userId, candidateId])
 }
