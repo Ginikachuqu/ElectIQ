@@ -45,14 +45,23 @@ const Signup = () => {
 
   const onSubmit = async (data: SignupFormData) => {
     try {
-      
-      
-      console.log(data.email, data.password)
-      
-      alert('Signup successful!');
+      const result = await signUp(
+        data.email, 
+        data.password, 
+        data.matricNo, 
+        data.firstName, 
+        data.lastName
+      );
+
+      if (result.success) {
+        alert('Signup successful!');
+        // navigate('/booth'); // Redirect to dashboard or appropriate page
+      } else {
+        setError(result.error || 'Signup failed. Please try again.');
+      }
     } catch (error) {
       console.error('Signup failed', error);
-      alert('Signup failed. Please try again.');
+      setError('An unexpected error occurred. Please try again.');
     }
   };
 
