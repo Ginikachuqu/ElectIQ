@@ -142,28 +142,3 @@ The system validates the vote and updates the available status of the voter's ma
 5. Results Viewing:
 
 Admins access the results dashboard to monitor and publish election results.
-
-
-
-
-
----
-
-Future Enhancements
-
-Blockchain Integration: To further enhance security and transparency.
-
-Notification System: SMS or email alerts for voters.
-
-Analytics Dashboard: Visual insights into voter turnout and other metrics.
-
-Multilingual Support: Local language options for broader accessibility.
-
-
-
----
-
-Conclusion
-
-The FUTO SUG Election App is designed to digitize and streamline student elections while ensuring transparency and security. Leveraging modern tools like React, TypeScript, Supabase, and Prisma, it guarantees a smooth user experience for voters and administrators alike.
-
